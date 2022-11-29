@@ -2,26 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormModalComponent} from "../programas/form-modal/form-modal.component";
 import Swal from "sweetalert2";
-import {MaterialService} from "../../../providers/services/materiales.service";
+import {PersonaService} from "../../../providers/services/persona.service";
 
 @Component({
-  selector: 'app-materiales',
-  templateUrl: './materiales.component.html',
-  styleUrls: ['./materiales.component.css']
+  selector: 'app-personas',
+  templateUrl: './personas.component.html',
+  styleUrls: ['./personas.component.css']
 })
-export class MaterialesComponent implements OnInit {
+export class PersonasComponent implements OnInit {
 
-  materiales: any = [];
-  constructor(private materialService: MaterialService,
+  personas: any = [];
+  constructor(private personaService: PersonaService,
               private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.getMateriales();
+    this.getPersonas();
   }
 
-  getMateriales(): void {
-    this.materialService.getAll$().subscribe(response => {
-      this.materiales = response.data || [];
+  getPersonas(): void {
+    this.personaService.getAll$().subscribe(response => {
+      this.personas = response.data || [];
     });
   }
 
@@ -37,12 +37,12 @@ export class MaterialesComponent implements OnInit {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Material',
+          title: 'Personas',
           text: `${res.message}`,
           showConfirmButton: false,
           timer: 1300
         })
-        this.getMateriales();
+        this.getPersonas();
       }
     });
   }
@@ -53,7 +53,7 @@ export class MaterialesComponent implements OnInit {
       keyboard: false,
       backdrop: 'static'
     });
-    modal.componentInstance.mateId = item.mateId;
+    modal.componentInstance.persId = item.persId;
     modal.componentInstance.item = item;
     modal.componentInstance.title = 'Modificar';
     modal.result.then(res => {
@@ -61,18 +61,18 @@ export class MaterialesComponent implements OnInit {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Materiales',
+          title: 'Personas',
           text: `${res.message}`,
           showConfirmButton: false,
           timer: 1300
         });
-        this.getMateriales();
+        this.getPersonas();
       }
     });
   }
   public onDelete(item: any): void {
-    const ID = item.mateId;
-    const mensaje = '¿ Desea eliminar? : ' + ' ' + item.mateDescri;
+    const ID = item.persId;
+    const mensaje = '¿ Desea eliminar? : ' + ' ' + item.persNombre;
     if (ID) {
       Swal.fire({
         title: 'Se eliminará el registro',
@@ -86,7 +86,7 @@ export class MaterialesComponent implements OnInit {
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.value) {
-          this.materialService.delete$(ID).subscribe(data => {
+          this.personaService.delete$(ID).subscribe(data => {
             if (data.success) {
               Swal.fire({
                 title: 'Eliminado',
@@ -97,7 +97,7 @@ export class MaterialesComponent implements OnInit {
                 confirmButtonColor: '#7f264a',
                 timer: 1300,
               });
-              this.getMateriales();
+              this.getPersonas();
             }
           });
         }

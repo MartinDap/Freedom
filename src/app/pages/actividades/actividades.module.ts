@@ -8,6 +8,7 @@ import {ActividadesRoutingModule} from "./actividades-routing.module";
 import {ProgramaService} from "../../providers/services/programa.service";
 import { FormModalComponent } from './programas/form-modal/form-modal.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {PersonasComponent} from "./personas/personas.component";
 
 
 
@@ -17,7 +18,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     ProgramasComponent,
     MaterialesComponent,
     ActividadesComponent,
-    FormModalComponent
+    FormModalComponent,
+    PersonasComponent
   ],
   imports: [
     CommonModule,
