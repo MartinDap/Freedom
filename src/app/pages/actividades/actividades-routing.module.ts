@@ -2,8 +2,8 @@ import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {ActividadesComponent} from "./actividades.component";
 import {MaterialesComponent} from "./materiales/materiales.component";
-import { ProgramasComponent } from "./programas/programas.component";
-import { TalleresComponent } from "./talleres/talleres.component";
+import {ProgramasComponent } from "./programas/programas.component";
+import {TalleresComponent } from "./talleres/talleres.component";
 import {PersonasComponent } from "./personas/personas.component";
 
 const routes: Routes = [
@@ -12,8 +12,8 @@ const routes: Routes = [
     component: ActividadesComponent,
     children: [
       {
-        path: 'materiales',
-        component: MaterialesComponent
+        path: 'personas',
+        component: PersonasComponent
       },
       {
         path: 'programas',
@@ -24,9 +24,10 @@ const routes: Routes = [
         component: TalleresComponent
       },
       {
-        path: 'personas',
-        component: PersonasComponent
+        path: 'materiales',
+        component: MaterialesComponent
       },
+
     ]
   }
 ];

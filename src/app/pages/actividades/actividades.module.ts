@@ -9,6 +9,12 @@ import {ProgramaService} from "../../providers/services/programa.service";
 import { FormModalComponent } from './programas/form-modal/form-modal.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {PersonasComponent} from "./personas/personas.component";
+import {PersonaService} from "../../providers/services/persona.service";
+import {TallerService} from "../../providers/services/taller.service"
+import {MaterialService} from "../../providers/services/materiales.service";
+
+
+
 
 
 
@@ -27,7 +33,10 @@ import {PersonasComponent} from "./personas/personas.component";
     ReactiveFormsModule
   ],
   providers: [
-    ProgramaService
+    ProgramaService,
+    TallerService,
+    PersonaService,
+    MaterialService
   ]
 })
 export class ActividadesModule { }
