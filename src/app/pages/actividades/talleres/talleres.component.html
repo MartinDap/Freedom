@@ -1,1 +1,38 @@
-<p>talleres works!</p>
+<button type="button" (click)="openModal()" class="float-right btn btn-primary mb-2">Nuevo</button>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered ">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Tema del Taller</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Fin</th>
+      <th>Hora</th>
+      <th>Lugar del Taller</th>
+      <th>Descripción</th>
+      <th>Dirección</th>
+      <th colspan="2" class="text-center">Opciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let taller of talleres">
+      <td>{{taller.tallId}}</td>
+      <td>{{taller.tallTema}}</td>
+      <td>{{taller.tallFechaInicio}}</td>
+      <td>{{taller.tallFechaFin}}</td>
+      <td>{{taller.tallHora}}</td>
+      <td>{{taller.tallLugar}}</td>
+      <td>{{taller.tallDesc}}</td>
+      <td>{{taller.tallDireccion}}</td>
+      <td class="text-center">
+        <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(taller)">Editar
+        </button>
+      </td>
+      <td class="text-center">
+        <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(taller)">Eliminar
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
