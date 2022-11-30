@@ -1,0 +1,48 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{title}} Persona</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">x</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="frmPersona">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Nombres</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="persNombre" class="form-control" placeholder="Ingrese el Nombre">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Apellido Paterno</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="persApPaterno" class="form-control" placeholder="Ingrese el Apellido Paterno">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Apellido Materno</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="persApMaterno" class="form-control" placeholder="Ingrese el Apellido Materno">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Nº de Celular</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="persCelular" class="form-control" placeholder="Ingrese Número de Celular">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Correo Electronico</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="persCorreo" class="form-control" placeholder="Ingrese Correo Electrino">
+      </div>
+    </div>
+  </form>
+</div>
+
+<pre>{{frmPersona.value | json}}</pre>
+
+<div class="modal-footer">
+  <button type="button" [disabled]="frmPersona.invalid" *ngIf="title =='Nuevo'" class="btn btn-primary" (click)="save()">Guardar</button>
+  <button type="button" [disabled]="frmPersona.invalid" *ngIf="title =='Modificar'" class="btn btn-primary" (click)="update()">Modificar</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss()">Cancelar</button>
+</div>

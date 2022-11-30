@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {FormModalComponent} from "../programas/form-modal/form-modal.component";
 import Swal from "sweetalert2";
 import {PersonaService} from "../../../providers/services/persona.service";
+import {FormModalPersonasComponent} from "./form-modal-personas/form-modal-personas.component";
 
 @Component({
   selector: 'app-personas',
@@ -26,7 +26,7 @@ export class PersonasComponent implements OnInit {
   }
 
   openModal(): void {
-    const modal = this.modalService.open(FormModalComponent, {
+    const modal = this.modalService.open(FormModalPersonasComponent, {
       size: 'lg',
       keyboard: false,
       backdrop: 'static'
@@ -48,7 +48,7 @@ export class PersonasComponent implements OnInit {
   }
 
   openModalEdit(item: any): any {
-    const modal = this.modalService.open(FormModalComponent, {
+    const modal = this.modalService.open(FormModalPersonasComponent, {
       size: 'lg',
       keyboard: false,
       backdrop: 'static'
