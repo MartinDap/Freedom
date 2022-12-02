@@ -25,6 +25,12 @@
       </div>
     </div>
     <div class="form-group row">
+      <label class="col-sm-3 col-form-label">DNI</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="persDni" class="form-control" placeholder="Ingrese DNI">
+      </div>
+    </div>
+    <div class="form-group row">
       <label class="col-sm-3 col-form-label">Nº de Celular</label>
       <div class="col-sm-9">
         <input type="text" formControlName="persCelular" class="form-control" placeholder="Ingrese Número de Celular">
@@ -38,8 +44,6 @@
     </div>
   </form>
 </div>
-
-<pre>{{frmPersona.value | json}}</pre>
 
 <div class="modal-footer">
   <button type="button" [disabled]="frmPersona.invalid" *ngIf="title =='Nuevo'" class="btn btn-primary" (click)="save()">Guardar</button>

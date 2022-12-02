@@ -10,16 +10,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let material of materiales">
-      <td>{{material.progId}}</td>
-      <td>{{material.mateDescri}}</td>
-      <td>{{material.mateName}}</td>
+    <tr *ngFor="let materiales of materiales">
+      <td>{{materiales.progId}}</td>
+      <td>{{materiales.mateDescri}}</td>
+      <td>{{materiales.mateName}}</td>
       <td class="text-center">
-        <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(material)">Editar
+        <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(materiales)">Editar
         </button>
       </td>
       <td class="text-center">
-        <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(material)">Eliminar
+        <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(materiales)">Eliminar
         </button>
       </td>
     </tr>

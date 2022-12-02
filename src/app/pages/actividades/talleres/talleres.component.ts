@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {TallerService} from "../../../providers/services/taller.service";
-import {FormModalComponent} from "../programas/form-modal/form-modal.component";
 import Swal from "sweetalert2";
+import {FormModalTalleresComponent} from "./form-modal-talleres/form-modal-talleres.component";
+import {TallerService} from "../../../providers/services/taller.service";
 
 @Component({
   selector: 'app-talleres',
@@ -26,7 +26,7 @@ export class TalleresComponent implements OnInit {
   }
 
   openModal(): void {
-    const modal = this.modalService.open(FormModalComponent, {
+    const modal = this.modalService.open(FormModalTalleresComponent, {
       size: 'lg',
       keyboard: false,
       backdrop: 'static'
@@ -48,7 +48,7 @@ export class TalleresComponent implements OnInit {
   }
 
   openModalEdit(item: any): any {
-    const modal = this.modalService.open(FormModalComponent, {
+    const modal = this.modalService.open(FormModalTalleresComponent, {
       size: 'lg',
       keyboard: false,
       backdrop: 'static'

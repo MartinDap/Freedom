@@ -7,7 +7,7 @@ import {END_POINTS} from "../utils/end-points";
 @Injectable({
   providedIn: 'root'
 })
-export class MaterialService extends EntityDataService<IResponse>{
+export class MaterialesService extends EntityDataService<IResponse>{
 
   constructor(protected override httpClient: HttpClient) {
     super(httpClient, END_POINTS.api+END_POINTS.actividades.materiales);

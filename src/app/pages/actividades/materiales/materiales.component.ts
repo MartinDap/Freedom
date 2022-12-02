@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {FormModalComponent} from "../programas/form-modal/form-modal.component";
 import Swal from "sweetalert2";
-import {MaterialService} from "../../../providers/services/materiales.service";
+import {MaterialesService} from "../../../providers/services/materiales.service";
+import {FormModalMaterialesComponent} from "./form-modal-materiales/form-modal-materiales.component";
 
 @Component({
   selector: 'app-materiales',
@@ -12,7 +12,7 @@ import {MaterialService} from "../../../providers/services/materiales.service";
 export class MaterialesComponent implements OnInit {
 
   materiales: any = [];
-  constructor(private materialService: MaterialService,
+  constructor(private materialesService: MaterialesService,
               private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -20,13 +20,13 @@ export class MaterialesComponent implements OnInit {
   }
 
   getMateriales(): void {
-    this.materialService.getAll$().subscribe(response => {
+    this.materialesService.getAll$().subscribe(response => {
       this.materiales = response.data || [];
     });
   }
 
   openModal(): void {
-    const modal = this.modalService.open(FormModalComponent, {
+    const modal = this.modalService.open(FormModalMaterialesComponent, {
       size: 'lg',
       keyboard: false,
       backdrop: 'static'
@@ -48,7 +48,7 @@ export class MaterialesComponent implements OnInit {
   }
 
   openModalEdit(item: any): any {
-    const modal = this.modalService.open(FormModalComponent, {
+    const modal = this.modalService.open(FormModalMaterialesComponent, {
       size: 'lg',
       keyboard: false,
       backdrop: 'static'
@@ -86,7 +86,7 @@ export class MaterialesComponent implements OnInit {
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.value) {
-          this.materialService.delete$(ID).subscribe(data => {
+          this.materialesService.delete$(ID).subscribe(data => {
             if (data.success) {
               Swal.fire({
                 title: 'Eliminado',

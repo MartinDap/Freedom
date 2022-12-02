@@ -10,9 +10,11 @@ import {FormModalComponent} from './programas/form-modal/form-modal.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {PersonaService} from "../../providers/services/persona.service";
 import {TallerService} from "../../providers/services/taller.service"
-import {MaterialService} from "../../providers/services/materiales.service";
 import {PersonasComponent} from "./personas/personas.component";
 import {FormModalPersonasComponent} from "./personas/form-modal-personas/form-modal-personas.component";
+import {FormModalTalleresComponent} from "./talleres/form-modal-talleres/form-modal-talleres.component";
+import { FormModalMaterialesComponent } from './materiales/form-modal-materiales/form-modal-materiales.component';
+import {MaterialesService} from "../../providers/services/materiales.service";
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import {FormModalPersonasComponent} from "./personas/form-modal-personas/form-mo
     ActividadesComponent,
     FormModalComponent,
     PersonasComponent,
-    FormModalPersonasComponent
+    FormModalPersonasComponent,
+    FormModalTalleresComponent,
+    FormModalMaterialesComponent
 
 
   ],
@@ -36,7 +40,7 @@ import {FormModalPersonasComponent} from "./personas/form-modal-personas/form-mo
     ProgramaService,
     TallerService,
     PersonaService,
-    MaterialService
+    MaterialesService
   ]
 })
 export class ActividadesModule { }

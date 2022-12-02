@@ -40,6 +40,7 @@ export class FormModalPersonasComponent implements OnInit {
       persNombre: ['', [Validators.required]],
       persApPaterno: ['', [Validators.required]],
       persApMaterno: ['', [Validators.required]],
+      persDni: ['', [Validators.required]],
       persCelular: ['', [Validators.required]],
       persCorreo: ['', [Validators.required]],
     };
@@ -49,9 +50,7 @@ export class FormModalPersonasComponent implements OnInit {
   save(): void {
     this.personaService.add$(this.frmPersona.value).subscribe(response => {
       if (response.success){
-        this.activeModal.close({
-          succes:true,
-          message: response.message});
+        this.activeModal.close({success:true, message: response.message});
       }
     });
   }
@@ -59,9 +58,7 @@ export class FormModalPersonasComponent implements OnInit {
   update(): void {
     this.personaService.update$(this.persId, this.frmPersona.value).subscribe(response => {
       if (response.success){
-        this.activeModal.close({
-          succes:true,
-          message: response.message});
+        this.activeModal.close({success:true, message: response.message});
       }
     });
   }
