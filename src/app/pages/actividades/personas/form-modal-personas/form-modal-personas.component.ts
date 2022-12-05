@@ -40,6 +40,7 @@ export class FormModalPersonasComponent implements OnInit {
       persNombre: ['', [Validators.required]],
       persApPaterno: ['', [Validators.required]],
       persApMaterno: ['', [Validators.required]],
+      persDni: ['', [Validators.required]],
       persCelular: ['', [Validators.required]],
       persCorreo: ['', [Validators.required]],
     };
