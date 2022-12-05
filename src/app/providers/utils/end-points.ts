@@ -4,6 +4,7 @@ export const END_POINTS = {
       personas: 'persona',
       programas: 'programa',
       talleres: 'taller',
-      materiales: 'materiales'
+      materiales: 'materiales',
+      tipopersonas: 'tipopersona'
     }
 };

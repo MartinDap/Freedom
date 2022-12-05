@@ -5,6 +5,8 @@ import {MaterialesComponent} from "./materiales/materiales.component";
 import {ProgramasComponent } from "./programas/programas.component";
 import {PersonasComponent } from "./personas/personas.component";
 import {TalleresComponent} from "./talleres/talleres.component";
+import {TipopersonasComponent} from "./tipopersonas/tipopersonas.component";
+
 
 const routes: Routes = [
   {
@@ -27,6 +29,11 @@ const routes: Routes = [
         path: 'materiales',
         component: MaterialesComponent
       },
+      {
+        path: 'tipopersonas',
+        component: TipopersonasComponent
+      },
+
 
     ]
   }

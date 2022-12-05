@@ -18,8 +18,8 @@
     <tr *ngFor="let taller of talleres">
       <td>{{taller.tallId}}</td>
       <td>{{taller.tallTema}}</td>
-      <td>{{taller.tallFechaInicio}}</td>
-      <td>{{taller.tallFechaFin}}</td>
+      <td>{{taller.tallFechaInicio | date:'dd/MM/YYYY'}}</td>
+      <td>{{taller.tallFechaFin | date:'dd/MM/YYYY'}}</td>
       <td>{{taller.tallHora}}</td>
       <td>{{taller.tallLugar}}</td>
       <td>{{taller.tallDesc}}</td>

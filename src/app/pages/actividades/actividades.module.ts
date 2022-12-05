@@ -13,8 +13,12 @@ import {TallerService} from "../../providers/services/taller.service"
 import {PersonasComponent} from "./personas/personas.component";
 import {FormModalPersonasComponent} from "./personas/form-modal-personas/form-modal-personas.component";
 import {FormModalTalleresComponent} from "./talleres/form-modal-talleres/form-modal-talleres.component";
-import { FormModalMaterialesComponent } from './materiales/form-modal-materiales/form-modal-materiales.component';
+import {FormModalMaterialesComponent } from './materiales/form-modal-materiales/form-modal-materiales.component';
 import {MaterialesService} from "../../providers/services/materiales.service";
+import {TipopersonasComponent} from "./tipopersonas/tipopersonas.component";
+import {FormModalTipopersonasComponent} from "./tipopersonas/form-modal-tipopersonas/form-modal-tipopersonas.component";
+import {TipopersonaService} from "../../providers/services/tipopersona.service";
+
 
 
 @NgModule({
@@ -23,11 +27,14 @@ import {MaterialesService} from "../../providers/services/materiales.service";
     ProgramasComponent,
     MaterialesComponent,
     ActividadesComponent,
-    FormModalComponent,
     PersonasComponent,
+    TipopersonasComponent,
+    FormModalComponent,
     FormModalPersonasComponent,
     FormModalTalleresComponent,
-    FormModalMaterialesComponent
+    FormModalMaterialesComponent,
+    FormModalTipopersonasComponent,
+
 
 
   ],
@@ -40,7 +47,8 @@ import {MaterialesService} from "../../providers/services/materiales.service";
     ProgramaService,
     TallerService,
     PersonaService,
-    MaterialesService
+    MaterialesService,
+    TipopersonaService
   ]
 })
 export class ActividadesModule { }
