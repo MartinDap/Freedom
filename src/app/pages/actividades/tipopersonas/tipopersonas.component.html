@@ -9,15 +9,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let tipopersona of tipopersonas; index as i">
+    <tr *ngFor="let tipopersonas of tipopersonas; index as i">
       <td>{{i+1}}</td>
-      <td>{{tipopersona.tipePersona}}</td>
+      <td>{{tipopersonas.tipePersona}}</td>
       <td class="text-center">
-        <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(tipopersona)">Editar
+        <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(tipopersonas)">Editar
         </button>
       </td>
       <td class="text-center">
-        <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(tipopersona)">Eliminar
+        <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(tipopersonas)">Eliminar
         </button>
       </td>
     </tr>

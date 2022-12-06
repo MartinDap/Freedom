@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import { TipopersonaService } from 'src/app/providers/services/tipopersona.service';
 import {PersonaService} from "../../../../providers/services/persona.service";
 
 
@@ -14,24 +15,25 @@ export class FormModalPersonasComponent implements OnInit {
   @Input() title: any;
   @Input() persId: any;
   @Input() item: any;
-  personas: any = [];
+  tipoPersonas: any = [];
   frmPersona: FormGroup;
   constructor(public activeModal: NgbActiveModal,
               private formBuilder: FormBuilder,
-              private personaService: PersonaService) {}
+              private personaService: PersonaService,
+              private tipopersonaService: TipopersonaService) {}
 
   ngOnInit(): void {
-    this.getPersonas();
+    this.getTipoPersonas();
     this.formInit();
     if(this.item){
       this.updateData();
     }
   }
 
-  getPersonas(): void {
-    this.personaService.getAll$().subscribe(response => {
-      this.personas = response.data || [];
-      console.log(this.personas);
+  getTipoPersonas(): void {
+    this.tipopersonaService.getAll$().subscribe(response => {
+      this.tipoPersonas = response.data || [];
+      console.log(this.tipoPersonas);
     });
   }
 
@@ -43,28 +45,41 @@ export class FormModalPersonasComponent implements OnInit {
       persDni: ['', [Validators.required]],
       persCelular: ['', [Validators.required]],
       persCorreo: ['', [Validators.required]],
+      tipeId: ['', [Validators.required]]
     };
     this.frmPersona = this.formBuilder.group(controls);
   }
 
   save(): void {
-    this.personaService.add$(this.frmPersona.value).subscribe(response => {
+    let data = Object.assign(this.frmPersona.value,{tipoPersona: {tipeId: this.frmPersona.value.tipeId}});
+    this.personaService.add$(data).subscribe(response => {
       if (response.success){
-        this.activeModal.close({success:true, message: response.message});
+        this.activeModal.close({
+          success:true,
+          message: response.message
+        });
       }
     });
   }
 
   update(): void {
-    this.personaService.update$(this.persId, this.frmPersona.value).subscribe(response => {
+    let data = Object.assign(this.frmPersona.value,
+      {tipoPersona: {tipeId: this.frmPersona.value.tipeId}});
+    console.log(data);
+    this.personaService.update$(this.persId, data).subscribe(response => {
       if (response.success){
-        this.activeModal.close({success:true, message: response.message});
+        this.activeModal.close({
+          success:true,
+          message: response.message});
       }
     });
   }
 
   updateData(): void {
-    this.frmPersona.patchValue(this.item);
+    let data = Object.assign(this.item,
+      {tipeId: this.item.tipoPersona.tipeId});
+    console.log("AAAAAAA ",data)
+    this.frmPersona.patchValue(data);
   }
 
 }

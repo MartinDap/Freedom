@@ -42,9 +42,18 @@
         <input type="text" formControlName="persCorreo" class="form-control" placeholder="Ingrese Correo Electrino">
       </div>
     </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Tipo de persona</label>
+      <div class="col-sm-9">
+        <select class="form-control" formControlName="tipeId">
+          <option *ngFor="let tipopersona of tipoPersonas" [value]="tipopersona.tipeId">
+            {{tipopersona.tipePersona}}
+          </option>
+        </select>
+      </div>
+    </div>
   </form>
 </div>
-
 <div class="modal-footer">
   <button type="button" [disabled]="frmPersona.invalid" *ngIf="title =='Nuevo'" class="btn btn-primary" (click)="save()">Guardar</button>
   <button type="button" [disabled]="frmPersona.invalid" *ngIf="title =='Modificar'" class="btn btn-primary" (click)="update()">Modificar</button>

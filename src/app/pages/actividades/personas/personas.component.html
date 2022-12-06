@@ -5,30 +5,28 @@
     <tr>
       <th>#</th>
       <th>Nombre</th>
-      <th>Apellido Paterno</th>
-      <th>Apellido Materno</th>
+      <th>Apellidos</th>
       <th>DNI</th>
       <th>Nºde Celular</th>
       <th>Correo Electronico</th>
+      <th>Tipo Persona</th>
       <th colspan="2" class="text-center">Opciones</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let persona of personas">
-      <td>{{persona.persId}}</td>
+    <tr *ngFor="let persona of personas; index as i">
+      <td>{{i+1}}</td>
       <td>{{persona.persNombre}}</td>
-      <td>{{persona.persApPaterno}}</td>
-      <td>{{persona.persApMaterno}}</td>
+      <td>{{persona.persApPaterno}} {{persona.persApMaterno}}</td>
       <td>{{persona.persDni}}</td>
       <td>{{persona.persCelular}}</td>
       <td>{{persona.persCorreo}}</td>
+      <td>{{persona.tipoPersona.tipePersona}}</td>
       <td class="text-center">
-        <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(persona)">Editar
-        </button>
+        <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(persona)">Editar</button>
       </td>
       <td class="text-center">
-        <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(persona)">Eliminar
-        </button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(persona)">Eliminar</button>
       </td>
     </tr>
     </tbody>

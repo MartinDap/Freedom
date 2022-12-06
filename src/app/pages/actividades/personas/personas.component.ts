@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import Swal from "sweetalert2";
-import {PersonaService} from "../../../providers/services/persona.service";
 import {FormModalPersonasComponent} from "./form-modal-personas/form-modal-personas.component";
+import {PersonaService} from "../../../providers/services/persona.service";
 
 @Component({
   selector: 'app-personas',
@@ -12,6 +12,7 @@ import {FormModalPersonasComponent} from "./form-modal-personas/form-modal-perso
 export class PersonasComponent implements OnInit {
 
   personas: any = [];
+
   constructor(private personaService: PersonaService,
               private modalService: NgbModal) { }
 
@@ -22,6 +23,7 @@ export class PersonasComponent implements OnInit {
   getPersonas(): void {
     this.personaService.getAll$().subscribe(response => {
       this.personas = response.data || [];
+      console.log(this.personas);
     });
   }
 
@@ -44,7 +46,7 @@ export class PersonasComponent implements OnInit {
         })
         this.getPersonas();
       }
-    });
+    }).catch(err => {});
   }
 
   openModalEdit(item: any): any {
@@ -68,11 +70,12 @@ export class PersonasComponent implements OnInit {
         });
         this.getPersonas();
       }
+    }).catch(res => {
     });
   }
   public onDelete(item: any): void {
     const ID = item.persId;
-    const mensaje = '¿ Desea eliminar? : ' + ' ' + item.persNombre;
+    const mensaje = '¿ Desea eliminar? : ' + ' ' + item.persNombre + ' ?' ;
     if (ID) {
       Swal.fire({
         title: 'Se eliminará el registro',
