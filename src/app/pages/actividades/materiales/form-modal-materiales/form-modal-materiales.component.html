@@ -7,17 +7,29 @@
 <div class="modal-body">
   <form [formGroup]="frmMaterial">
     <div class="form-group row">
-      <label class="col-sm-3 col-form-label">Descripción del Material</label>
+      <label class="col-sm-3 col-form-label">Nombre del Material</label>
       <div class="col-sm-9">
-        <input type="text" formControlName="mateDescri" class="form-control" placeholder="Ingrese Descripción del Material">
+        <input type="text" formControlName="mateName" class="form-control" placeholder="Ingrese Nombre del Material">
       </div>
     </div>
+    
     <div class="form-group row">
       <label class="col-sm-3 col-form-label">Descripción</label>
       <div class="col-sm-9">
-        <input type="text" formControlName="mateName" class="form-control" placeholder="Ingrese nombre del Material">
+        <input type="text" formControlName="mateDescri" class="form-control" placeholder="Ingrese link Material">
       </div>
     </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Taller</label>
+      <div class="col-sm-9">
+        <select class="form-control" formControlName="tallId">
+          <option *ngFor="let material of talleres" [value]="material.tallId">
+            {{material.tallTema}}
+          </option>
+        </select>
+      </div>
+    </div>
+
   </form>
 </div>
 <div class="modal-footer">
