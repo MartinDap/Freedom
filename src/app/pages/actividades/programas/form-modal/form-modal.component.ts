@@ -36,7 +36,9 @@ export class FormModalComponent implements OnInit {
   save(): void {
     this.programaService.add$(this.frmPrograma.value).subscribe(response => {
       if (response.success) {
-        this.activeModal.close({success: true, message:response.message});
+        this.activeModal.close({
+          success: true,
+          message:response.message});
       }
     });
   }
@@ -44,7 +46,8 @@ export class FormModalComponent implements OnInit {
   update(): void {
     this.programaService.update$(this.progId, this.frmPrograma.value).subscribe(response => {
       if (response.success) {
-        this.activeModal.close({success: true, message:response.message});
+        this.activeModal.close({success: true,
+          message:response.message});
       }
     });
   }

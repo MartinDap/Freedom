@@ -15,6 +15,7 @@ export class FormModalMaterialesComponent implements OnInit {
   @Input() mateId: any;
   @Input() item: any;
   talleres: any = [];
+
   frmMaterial: FormGroup;
   constructor(public activeModal: NgbActiveModal,
               private formBuilder: FormBuilder,
@@ -61,7 +62,7 @@ export class FormModalMaterialesComponent implements OnInit {
     let data = Object.assign(this.frmMaterial.value,
       {taller: {tallId: this.frmMaterial.value.tallId}});
     console.log(data);
-    this.tallerService.update$(this.mateId, data).subscribe(response => {
+    this.materialesService.update$(this.mateId, data).subscribe(response => {
       if (response.success){
         this.activeModal.close({
           success:true,

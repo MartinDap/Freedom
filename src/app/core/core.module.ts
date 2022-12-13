@@ -5,6 +5,9 @@ import { HeaderComponent } from './main-page/header/header.component';
 import { FooterComponent } from './main-page/footer/footer.component';
 import {RouterModule} from "@angular/router";
 import { SidebarComponent } from './main-page/sidebar/sidebar.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatListModule} from "@angular/material/list";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -18,9 +21,12 @@ import { SidebarComponent } from './main-page/sidebar/sidebar.component';
     HeaderComponent,
     FooterComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatIconModule,
+        MatListModule,
+        MatCardModule
+    ]
 })
 export class CoreModule { }
