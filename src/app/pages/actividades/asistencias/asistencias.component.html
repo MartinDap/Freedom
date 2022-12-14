@@ -4,23 +4,19 @@
     <thead>
     <tr>
       <th>#</th>
-      <th>Nombre</th>
-      <th>Apellidos</th>
-      <th>DNI</th>
-      <th>Nºde Celular</th>
-      <th>Correo Electronico</th>
+      <th>Estado</th>
+      <th>Persona</th>
       <th>Taller</th>
-      <th>Tipo Persona</th>
+
       <th colspan="2" class="text-center">Opciones</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let asistencia of asistencias; index as i">
       <td>{{i+1}}</td>
-      <td>{{asistencia.persNombre}} {{asistencia.persApPaterno}} {{asistencia.persApMaterno}} </td>
-      <td>{{asistencia.taller}}</td>
-      <td>{{asistencia.tipoPersona.tipePersona}}</td>
-      <td>{{asistencia.persApPaterno}}</td>
+      <td>{{asistencia.asisEsta}} </td>
+      <td>{{asistencia.persona.persNombre}} </td>
+      <td>{{asistencia.taller.tallTema}}</td>
 
       <td class="text-center">
         <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(asistencia)">Editar</button>

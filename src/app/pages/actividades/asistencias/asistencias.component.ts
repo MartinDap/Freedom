@@ -12,6 +12,7 @@ import {AsistenciaService} from "../../../providers/services/asistencia.service"
 export class AsistenciasComponent implements OnInit {
 
   asistencias: any = [];
+
   constructor(private asistenciaService: AsistenciaService,
               private modalService: NgbModal) { }
 
@@ -22,6 +23,7 @@ export class AsistenciasComponent implements OnInit {
   getAsistencias(): void {
     this.asistenciaService.getAll$().subscribe(response => {
       this.asistencias = response.data || [];
+      console.log(this.asistencias);
     });
   }
 
@@ -44,7 +46,7 @@ export class AsistenciasComponent implements OnInit {
         })
         this.getAsistencias();
       }
-    });
+    }).catch(err => {});
   }
 
   openModalEdit(item: any): any {
@@ -53,7 +55,7 @@ export class AsistenciasComponent implements OnInit {
       keyboard: false,
       backdrop: 'static'
     });
-    modal.componentInstance.persId = item.persId;
+    modal.componentInstance.asisId = item.asisId;
     modal.componentInstance.item = item;
     modal.componentInstance.title = 'Modificar';
     modal.result.then(res => {
@@ -61,18 +63,19 @@ export class AsistenciasComponent implements OnInit {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Taller',
+          title: 'Asistencia',
           text: `${res.message}`,
           showConfirmButton: false,
           timer: 1300
         });
         this.getAsistencias();
       }
+    }).catch(res => {
     });
   }
   public onDelete(item: any): void {
-    const ID = item.persId;
-    const mensaje = '¿ Desea eliminar? : ' + ' ' + item.persNombre;
+    const ID = item.asisId;
+    const mensaje = '¿ Desea eliminar? : ' + ' ' + item.tipePersona + ' ?' ;;
     if (ID) {
       Swal.fire({
         title: 'Se eliminará el registro',

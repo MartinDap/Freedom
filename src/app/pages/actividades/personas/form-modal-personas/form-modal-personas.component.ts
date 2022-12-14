@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import { TipopersonaService } from 'src/app/providers/services/tipopersona.service';
 import {PersonaService} from "../../../../providers/services/persona.service";
-import {TallerService} from "../../../../providers/services/taller.service";
 
 
 @Component({
@@ -17,30 +16,21 @@ export class FormModalPersonasComponent implements OnInit {
   @Input() persId: any;
   @Input() item: any;
   tipoPersonas: any = [];
-  talleres: any = [];
 
   frmPersona: FormGroup;
   constructor(public activeModal: NgbActiveModal,
               private formBuilder: FormBuilder,
               private personaService: PersonaService,
-              private tallerService: TallerService,
               private tipopersonaService: TipopersonaService) {}
 
   ngOnInit(): void {
     this.getTipoPersonas();
-    this.getTaller();
     this.formInit();
     if(this.item){
       this.updateData();
     }
   }
 
-  getTaller(): void {
-    this.tallerService.getAll$().subscribe(response => {
-      this.talleres = response.data || [];
-      console.log(this.talleres);
-    });
-  }
 
   getTipoPersonas(): void {
     this.tipopersonaService.getAll$().subscribe(response => {
@@ -57,7 +47,6 @@ export class FormModalPersonasComponent implements OnInit {
       persDni: ['', [Validators.required]],
       persCelular: ['', [Validators.required]],
       persCorreo: ['', [Validators.required]],
-      tallId: ['', [Validators.required]],
       tipeId: ['', [Validators.required]]
     };
     this.frmPersona = this.formBuilder.group(controls);
@@ -65,7 +54,6 @@ export class FormModalPersonasComponent implements OnInit {
 
   save(): void {
     let data = Object.assign(this.frmPersona.value,
-      {taller: {tallId: this.frmPersona.value.tallId}},
       {tipoPersona: {tipeId: this.frmPersona.value.tipeId}});
     this.personaService.add$(data).subscribe(response => {
       if (response.success){
@@ -79,7 +67,6 @@ export class FormModalPersonasComponent implements OnInit {
 
   update(): void {
     let data = Object.assign(this.frmPersona.value,
-      {taller: {tallId: this.frmPersona.value.tallId}},
       {tipoPersona: {tipeId: this.frmPersona.value.tipeId}});
     console.log(data);
     this.personaService.update$(this.persId, data).subscribe(response => {
@@ -93,7 +80,6 @@ export class FormModalPersonasComponent implements OnInit {
 
   updateData(): void {
     let data = Object.assign(this.item,
-      {tallId: this.item.taller.tallId},
       {tipeId: this.item.tipoPersona.tipeId});
     console.log("AAAAAAA ",data)
     this.frmPersona.patchValue(data);
