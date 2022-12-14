@@ -6,7 +6,7 @@ import {ProgramasComponent } from "./programas/programas.component";
 import {PersonasComponent } from "./personas/personas.component";
 import {TalleresComponent} from "./talleres/talleres.component";
 import {TipopersonasComponent} from "./tipopersonas/tipopersonas.component";
-import {AsistenciasComponent} from "./asistencias/asistencias.component";
+
 
 
 const routes: Routes = [
@@ -34,11 +34,6 @@ const routes: Routes = [
         path: 'tipopersonas',
         component: TipopersonasComponent
       },
-      {
-        path: 'asistencias',
-        component: AsistenciasComponent
-      },
-
 
     ]
   }

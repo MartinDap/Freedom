@@ -18,7 +18,7 @@ import {TipopersonasComponent} from "./tipopersonas/tipopersonas.component";
 import {FormModalTipopersonasComponent} from "./tipopersonas/form-modal-tipopersonas/form-modal-tipopersonas.component";
 import {TipopersonaService} from "../../providers/services/tipopersona.service";
 import {PersonaService} from "../../providers/services/persona.service";
-import { AsistenciasComponent } from './asistencias/asistencias.component';
+
 
 
 
@@ -35,7 +35,7 @@ import { AsistenciasComponent } from './asistencias/asistencias.component';
     FormModalTalleresComponent,
     FormModalMaterialesComponent,
     FormModalTipopersonasComponent,
-    AsistenciasComponent,
+
 
 
 
