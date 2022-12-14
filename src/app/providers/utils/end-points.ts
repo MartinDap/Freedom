@@ -6,5 +6,6 @@ export const END_POINTS = {
       talleres: 'taller',
       materiales: 'materiales',
       tipopersonas: 'tipopersona',
+      asistencias: 'asistencia',
     }
 };
