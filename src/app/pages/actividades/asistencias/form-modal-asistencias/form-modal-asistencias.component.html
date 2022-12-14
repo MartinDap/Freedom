@@ -1,0 +1,66 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{title}} Persona</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">x</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="frmAsistencia">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Nombres</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="persNombre" class="form-control" placeholder="Ingrese el Nombre">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Apellido Paterno</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="persApPaterno" class="form-control" placeholder="Ingrese el Apellido Paterno">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Apellido Materno</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="persApMaterno" class="form-control" placeholder="Ingrese el Apellido Materno">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Taller</label>
+      <div class="col-sm-9">
+        <select class="form-control" formControlName="tallId">
+          <option *ngFor="let taller of talleres" [value]="taller.tallId">
+            {{taller.tallTema}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Taller</label>
+      <div class="col-sm-9">
+        <select class="form-control" formControlName="tallId">
+          <option *ngFor="let taller of talleres" [value]="taller.tallId">
+            {{taller.tallTema}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Tipo de persona</label>
+      <div class="col-sm-9">
+        <select class="form-control" formControlName="tipeId">
+          <option *ngFor="let tipopersona of tipoPersonas" [value]="tipopersona.tipeId">
+            {{tipopersona.tipePersona}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" [disabled]="frmAsistencia.invalid" *ngIf="title =='Nuevo'" class="btn btn-primary" (click)="save()">Guardar</button>
+  <button type="button" [disabled]="frmAsistencia.invalid" *ngIf="title =='Modificar'" class="btn btn-primary" (click)="update()">Modificar</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss()">Cancelar</button>
+</div>

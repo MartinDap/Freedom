@@ -23,6 +23,7 @@ const routes: Routes = [
         path: 'programas',
         component: ProgramasComponent
       },
+
       {
         path: 'talleres',
         component: TalleresComponent
