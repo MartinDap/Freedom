@@ -8,12 +8,14 @@ import {HttpClientModule} from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ReactiveFormsModule} from "@angular/forms";
 import { HomeComponent } from './pages/home/home.component';
+import {AsistenciasComponent} from "./pages/actividades/asistencias/asistencias.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     HomeComponent,
+    AsistenciasComponent,
   ],
   imports: [
     BrowserModule,
