@@ -10,19 +10,21 @@
       <th>Hora</th>
       <th>Lugar del Taller</th>
       <th>Descripción</th>
+      <th>Programa</th>
       <th>Dirección</th>
       <th colspan="2" class="text-center">Opciones</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let taller of talleres">
-      <td>{{taller.tallId}}</td>
+    <tr *ngFor="let taller of talleres; index as i">
+      <td>{{i+1}}</td>
       <td>{{taller.tallTema}}</td>
       <td>{{taller.tallFechaInicio | date:'dd/MM/YYYY'}}</td>
       <td>{{taller.tallFechaFin | date:'dd/MM/YYYY'}}</td>
       <td>{{taller.tallHora}}</td>
       <td>{{taller.tallLugar}}</td>
       <td>{{taller.tallDesc}}</td>
+      <td>{{taller.programa.progNombre}}</td>
       <td>{{taller.tallDireccion}}</td>
       <td class="text-center">
         <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(taller)">Editar

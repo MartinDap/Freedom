@@ -42,6 +42,18 @@
         <input type="text" formControlName="tallDesc" class="form-control" placeholder="Ingrese descripción del Taller">
       </div>
     </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Programa</label>
+      <div class="col-sm-9">
+        <select class="form-control" formControlName="progId">
+          <option *ngFor="let programa of programas" [value]="programa.progId">
+            {{programa.progNombre}}
+          </option>
+        </select>
+      </div>
+    </div>
+
     <div class="form-group row">
       <label class="col-sm-3 col-form-label">Direccíon del Taller</label>
       <div class="col-sm-9">
