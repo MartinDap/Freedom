@@ -13,7 +13,7 @@ import {AsistenciaService} from "../../../../providers/services/asistencia.servi
 export class FormModalAsistenciasComponent implements OnInit {
 
   @Input() title: any;
-  @Input() persId: any;
+  @Input() asisId: any;
   @Input() item: any;
   tipoPersonas: any = [];
   talleres: any = [];
@@ -24,6 +24,8 @@ export class FormModalAsistenciasComponent implements OnInit {
               private asistenciaService: AsistenciaService,
               private tallerService: TallerService,
               private tipopersonaService: TipopersonaService) {}
+
+  Id = document.getElementById('id');
 
   ngOnInit(): void {
     this.getTipoPersonas();
@@ -50,6 +52,7 @@ export class FormModalAsistenciasComponent implements OnInit {
 
   formInit(): void {
     const controls = {
+      asisEsta: ['', [Validators.required]],
       persNombre: ['', [Validators.required]],
       persApPaterno: ['', [Validators.required]],
       persApMaterno: ['', [Validators.required]],
@@ -78,7 +81,7 @@ export class FormModalAsistenciasComponent implements OnInit {
       {taller: {tallId: this.frmAsistencia.value.tallId}},
       {tipoPersona: {tipeId: this.frmAsistencia.value.tipeId}});
     console.log(data);
-    this.asistenciaService.update$(this.persId, data).subscribe(response => {
+    this.asistenciaService.update$(this.asisId, data).subscribe(response => {
       if (response.success){
         this.activeModal.close({
           success:true,
