@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title">{{title}} Persona</h4>
+  <h4 class="modal-title">{{title}} Asistencia</h4>
   <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss()">
     <span aria-hidden="true">x</span>
   </button>
@@ -13,13 +13,15 @@
       </div>
     </div>
 
-
-
-    <div class="col-sm-9">
-      <select class="form-control" formControlName="persona">
-        <option *ngFor="let tipopersona of tipoPersonas" [value]="tipopersona.peId">
-          {{tipopersona.tipePersona}}</option>
-      </select>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Persona</label>
+      <div class="col-sm-9">
+        <select class="form-control" formControlName="persId">
+          <option *ngFor="let persona of personas" [value]="persona.persId">
+            {{persona.persNombre}}
+          </option>
+        </select>
+      </div>
     </div>
 
     <div class="form-group row">

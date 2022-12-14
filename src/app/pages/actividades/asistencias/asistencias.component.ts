@@ -12,6 +12,7 @@ import {AsistenciaService} from "../../../providers/services/asistencia.service"
 export class AsistenciasComponent implements OnInit {
 
   asistencias: any = [];
+
   constructor(private asistenciaService: AsistenciaService,
               private modalService: NgbModal) { }
 
@@ -22,6 +23,7 @@ export class AsistenciasComponent implements OnInit {
   getAsistencias(): void {
     this.asistenciaService.getAll$().subscribe(response => {
       this.asistencias = response.data || [];
+      console.log(this.asistencias);
     });
   }
 
@@ -44,7 +46,7 @@ export class AsistenciasComponent implements OnInit {
         })
         this.getAsistencias();
       }
-    });
+    }).catch(err => {});
   }
 
   openModalEdit(item: any): any {
@@ -68,11 +70,12 @@ export class AsistenciasComponent implements OnInit {
         });
         this.getAsistencias();
       }
+    }).catch(res => {
     });
   }
   public onDelete(item: any): void {
     const ID = item.asisId;
-    const mensaje = '¿ Desea eliminar? : ' + ' ' + item.asisId;
+    const mensaje = '¿ Desea eliminar? : ' + ' ' + item.tipePersona + ' ?' ;;
     if (ID) {
       Swal.fire({
         title: 'Se eliminará el registro',
